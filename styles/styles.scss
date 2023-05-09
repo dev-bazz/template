@@ -1,0 +1,341 @@
+@use "./reset";
+@use "./setup" as *;
+:root {
+	@include custom-media-query("desktop", 1200px) {
+		font-size: 12px;
+	}
+}
+::-moz-selection {
+	background-color: map-get($colors, "black") !important;
+	color: map-get($colors, "orange") !important;
+}
+::selection {
+	background-color: map-get($colors, "black") !important;
+	color: map-get($colors, "orange") !important;
+}
+
+.mask {
+	position: absolute;
+	top: 0;
+	z-index: -100;
+}
+main {
+	padding-bottom: px-to-rem(24px);
+}
+.main-container {
+	padding-top: 10vh;
+	padding-top: 10dvh;
+
+	max-width: 766px;
+	margin-inline: auto;
+	padding-inline: 16px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	@include custom-media-query("desktop", 1200px) {
+		max-width: 1239px;
+		justify-content: center;
+		gap: 10vw;
+		gap: 10dvw;
+	}
+	.left {
+		h4 {
+			font-size: 18px;
+			font-family: "klavika", sans-serif;
+			font-weight: 500;
+			color: map-get($colors, "teal");
+		}
+		h1 {
+			font-size: 32px;
+			font-family: "klavika", sans-serif;
+			font-style: bold;
+			color: map-get($colors, "orange");
+			max-width: 20ch;
+			line-height: 40px;
+		}
+	}
+	.right {
+		display: flex;
+		flex-direction: column;
+		translate: 0 24px;
+		p {
+			max-width: 50ch;
+			font-style: normal;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 28px;
+			font-family: "nunito";
+		}
+		.view-cta {
+			all: unset;
+			font-family: "klavika", sans-serif;
+			text-transform: uppercase;
+			font-size: 16px;
+			margin-top: 24px;
+			display: flex;
+			align-items: center;
+			color: map-get($colors, "orange");
+			cursor: pointer;
+			#arrow {
+				transition: all 0.6s ease;
+				fill: #252525;
+			}
+			&:hover {
+				#arrow {
+					translate: 8px;
+					transition: all 0.6s ease;
+					fill: map-get($colors, "orange");
+				}
+			}
+		}
+	}
+}
+main {
+	padding-inline: 4px;
+}
+.cards {
+	margin-top: 14vh;
+	margin-top: 14dvh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: px-to-rem(32px);
+	-webkit-filter: drop-shadow(0px 8px 24px rgba(25, 26, 27, 0.1));
+	filter: drop-shadow(0px 8px 24px rgba(25, 26, 27, 0.1));
+
+	@include custom-media-query("desktop", 1200px) {
+		margin-top: 10dvh;
+		gap: 0;
+		.card {
+			margin-right: px-to-rem(-47px);
+		}
+		max-width: -webkit-fit-content;
+
+		max-width: -moz-fit-content;
+
+		max-width: fit-content;
+		margin-inline: auto;
+		.card:nth-child(1) {
+			z-index: 5;
+		}
+		.card:nth-child(2) {
+			z-index: 4;
+		}
+		.card:nth-child(3) {
+			z-index: 3;
+		}
+		.card:nth-child(4) {
+			z-index: 2;
+		}
+		.card:nth-child(5) {
+			z-index: 1;
+			margin-right: 0 !important;
+			.card_details .text {
+				padding-block: px-to-rem(8px);
+			}
+		}
+		flex-wrap: nowrap;
+		padding-inline: 0;
+		border-radius: px-to-rem(16px);
+		overflow: clip;
+	}
+
+	padding-inline: px-to-rem(16px);
+}
+
+.card:nth-child(5),
+.card:nth-child(4) {
+	z-index: 3;
+	.card_details .text {
+		padding-block: px-to-rem(8px);
+	}
+}
+
+.card {
+	transition: all 1s ease-in-out;
+
+	&:hover {
+		.card_details {
+			opacity: 1;
+		}
+	}
+	position: relative;
+	width: px-to-rem(368px);
+	aspect-ratio: 46/50;
+	font-family: "klavika", sans-serif;
+
+	min-height: px-to-rem(400px);
+	background-color: map-get($colors, "white");
+
+	&:is(.clip) {
+		@include custom-media-query("desktop", 1200px) {
+			-webkit-clip-path: url(#sclipPath);
+			clip-path: url(#sclipPath);
+		}
+	}
+	&:is(.black) {
+		.card__svg {
+			background-color: map-get($colors, "black");
+			flex-grow: 2;
+			height: 100%;
+			display: grid;
+			place-items: center;
+			padding-inline: px-to-rem(16px);
+		}
+	}
+
+	// Card Container
+	&__container {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	.card_details {
+		opacity: 0;
+		transition: opacity 0.25s ease-in-out;
+		position: absolute;
+		height: 100%;
+		background-color: map-get($colors, "white");
+		.text {
+			-webkit-padding-start: px-to-rem(36px);
+			padding-inline-start: px-to-rem(36px);
+			padding-block: px-to-rem(16px);
+			h3 {
+				font-size: px-to-rem(24px);
+				font-weight: 500;
+			}
+
+			p {
+				font-family: "nunito", sans-serif;
+				font-size: px-to-rem(16px);
+				max-width: 88%;
+			}
+		}
+		.cta {
+			position: relative;
+			margin-inline: px-to-rem(36px);
+			color: map-get($colors, "orange");
+			text-transform: uppercase;
+			font-size: px-to-rem(14px);
+			cursor: pointer;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			max-width: 6.5rem;
+			height: px-to-rem(22px);
+			border: 2px solid map-get($colors, "black");
+			border-width: 0 0 2px 0;
+
+			.line {
+				position: absolute;
+
+				left: 0;
+				right: 0;
+				width: 100%;
+				min-height: px-to-rem(2px);
+				background-color: map-get($colors, "orange");
+				transform: scaleX(0);
+				transform-origin: left;
+				transition: transform 0.3s ease-in-out;
+			}
+		}
+	}
+
+	// Card SVG
+	&__svg {
+		background-color: map-get($colors, "orange");
+		flex-grow: 2;
+		height: 100%;
+		display: grid;
+		place-items: center;
+		padding-inline: px-to-rem(16px);
+	}
+
+	// Card Title
+	&__title {
+		flex-grow: 1;
+		font-size: px-to-rem(24px);
+		font-weight: 500;
+		line-height: px-to-rem(32px);
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+
+		justify-content: center;
+		padding-block: px-to-rem(16px);
+		padding-inline: px-to-rem(32px);
+	}
+}
+
+.modal {
+	&::backdrop {
+		backdrop-filter: blur(24px);
+		-webkit-backdrop-filter: blur(24px);
+	}
+	max-width: 545px;
+	width: 100%;
+	min-height: 30dvh;
+	border-radius: 8px;
+
+	flex-direction: column;
+	border: 1px solid rgb(224, 224, 224);
+	padding: 16px 24px;
+}
+.modal-popup {
+	display: flex;
+	flex-direction: column;
+	.modal__form {
+		display: flex;
+		flex-direction: column;
+		margin-top: 24px;
+		input {
+			padding: 8px 16px;
+			font-family: "nunito", sans-serif;
+		}
+		gap: 8px;
+	}
+
+	.modal__details {
+		margin-top: 32px;
+	}
+
+	.modal__actions {
+		user-select: none;
+		margin-left: auto;
+		max-width: 200px;
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 32px;
+		.btn--secondary,
+		.btn--primary {
+			all: unset;
+			padding: 8px 16px;
+			font-family: "nunito", sans-serif;
+			cursor: pointer;
+			border-radius: 8px;
+		}
+		.btn--primary {
+			background-color: map-get($colors, "black");
+			color: white;
+		}
+	}
+
+	h4 {
+		font-family: "klavika", sans-serif;
+		font-size: 32px;
+	}
+	p {
+		font-family: "nunito", sans-serif;
+		max-width: 36ch;
+	}
+	@include custom-media-query("mobile", 570px) {
+		max-width: 345px;
+		width: 100%;
+	}
+}

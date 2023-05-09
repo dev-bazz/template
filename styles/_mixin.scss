@@ -1,0 +1,31 @@
+$base-font-size: 16px;
+
+@function px-to-rem($px, $suffix: 1rem) {
+	@return calc(($px / $base-font-size) * $suffix);
+}
+
+@mixin animation(
+	$name,
+	$duration,
+	$delay,
+	$iteration-count,
+	$direction,
+	$timing-function,
+	$fill-mode
+) {
+	animation-name: $name;
+	animation-duration: $duration;
+	animation-delay: $delay;
+	animation-iteration-count: $iteration-count;
+	animation-direction: $direction;
+	animation-timing-function: $timing-function;
+	animation-fill-mode: $fill-mode;
+	-webkit-animation-name: $name;
+	-webkit-animation-duration: $duration;
+	-webkit-animation-delay: $delay;
+	-webkit-animation-iteration-count: $iteration-count;
+	-webkit-animation-direction: $direction;
+	-webkit-animation-timing-function: $timing-function;
+	-webkit-animation-fill-mode: $fill-mode;
+}
+// mixin

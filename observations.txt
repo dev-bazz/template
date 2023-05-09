@@ -1,0 +1,34 @@
+# Estimated time to Complete task
+
+<<<<<<< HEAD
+Time: 12 hours
+
+## Actual time to Complete
+
+Time: 19 hours
+
+### breakdown
+
+ -> 4hours for project setup: images, assets , fonts, file structures, etc
+ -> 10hours for creating different UI elements and making them responsive on different screens.
+ -> 2hours for solving bugs and UI edge cases
+ -> 1hour for review of task
+ -> 2hours for clean up
+
+
+## Observations
+
+1. The figma design used a 1680px desktop screen to create desktop screen
+this means that in that a client screen size has to be up to 1680px to see the Desktop UI.
+
+Note that a figma design for desktop screen should start from 1440px because that is the most common screen size.
+I will scale down the size for common desktop screens (1200px upwards)
+
+2. Some of the images in the figma designs were  cropped with the sharp edge, I would have preferred the full image
+ but I was able to undo the cropped image and converted them to Webp format to reduce size and increase page load speed
+=======
+12 hours
+
+
+#Observations
+>>>>>>> parent of dee472e (default)

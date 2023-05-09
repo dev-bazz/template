@@ -1,0 +1,25 @@
+{
+  "name": "wp-fe-clement-femi-bazuaye-repo",
+  "version": "1.0.0",
+  "description": "Thanks for your interest in the WordPress developer position at Computan. Please work on the following assignment.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Computan-Tests/wp-fe-clement-femi-bazuaye-repo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Computan-Tests/wp-fe-clement-femi-bazuaye-repo/issues"
+  },
+  "homepage": "https://github.com/Computan-Tests/wp-fe-clement-femi-bazuaye-repo#readme",
+  "devDependencies": {
+    "browser-sync": "^2.29.1",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.62.1"
+  }
+}

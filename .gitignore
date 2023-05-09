@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+# ingnore node module
+node_modules/
+```
+=======
+# Ignore node_modules directory
+node_modules/
+>>>>>>> parent of dee472e (default)
